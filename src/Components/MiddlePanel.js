@@ -1,13 +1,22 @@
 import React from "react";
 import { CarContainer } from "./CarContainer";
 
-export const MiddlePanel = ({ cars }) => (
-	<div className="MiddlePanel">
-		{/* {cars.map((car, i) => {
-			return {!(car.locked) && <CarContainer key={i} car={car} />}
-		}} */}
-		{cars.map((car, i) => {
-			return !car.locked && <CarContainer key={i} car={car} />
-		})}
-	</div>
-);
+export const MiddlePanel = props => {
+	
+	return (
+		<div className="MiddlePanel">
+			{props.cars.map((car, i) => {
+				return (
+					!car.locked && (
+						<CarContainer
+							key={i}
+							changeQuantity={props.changeQuantity}
+							changeSellingPrice={props.changeSellingPrice}
+							car={car}
+						/>
+					)
+				);
+			})}
+		</div>
+	);
+};
