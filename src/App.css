@@ -1,91 +1,107 @@
 .App {
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: stretch;
 }
 
-.LeftPanel{
-  width: 20vw;
-  background-color: red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
+.LeftPanel {
+	width: 20vw;
+	background-color: black;
+	display: flex;
+	color: bisque;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
 }
-.Tabs{
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.Tabs {
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
 .Car-Container {
-  display: 
- inline-flex;
-  flex-direction: column;
-  background-color: pink;
-  border: 3px black solid;
-  min-width: 25%;
+	display: inline-flex;
+	flex-direction: column;
+	background-color: pink;
+	border: 3px black solid;
+	margin: 15px;
+	position: relative;
+	width: 20%;
 }
 
-.Car-Title{
-  font-size: 30px;
-  font-weight: bold;
+.Car-Container-Overlay {
+	border: 2px solid green;
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(99, 99, 99, 0.7);
+	text-align: center;
+	font-size: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.Car-Title {
+	font-size: 30px;
+	font-weight: bold;
 }
 
-.Car-Image{
-  height: 100%;
+.Car-Image {
+	height: 100%;
 }
 
-.Car-Image-Container{
-  height: 15vh;
-  background-color: green;
-  position: relative;
+.Car-Image-Container {
+	height: 15vh;
+	background-color: green;
+	position: relative;
 }
 
-.Car-Image-Overlay{
-  position: absolute;
-  bottom: 0%;
-  color: white;
-  width: 100%;
-  background-color: #2b020288;
+.Car-Image-Overlay {
+	position: absolute;
+	bottom: 0%;
+	color: white;
+	width: 100%;
+	background-color: #2b020288;
 }
 
-.Car-Toggles{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.Car-Toggles {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
-.Car-Toggle{
-  width: 50%;
-display: flex;
-flex-direction: column;
-border: 1px black solid;
+.Car-Toggle {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	border: 1px black solid;
 }
 
-.Toggle-Title{
-  font-weight: bold;
+.Toggle-Title {
+	font-weight: bold;
 }
 
-.Toggle-Controls{
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
+.Toggle-Controls {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
 }
 
-.MiddlePanel{
-  width: 60vw;
-  background-color: blue;
+.MiddlePanel {
+	width: 60vw;
+	background-color: yellow;
 }
 
-.RightPanel{
-  width: 20vw;
-  background-color: white;
+.RightPanel {
+	width: 20vw;
+	background-color: red;
 }
-

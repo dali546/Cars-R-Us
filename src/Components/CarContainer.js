@@ -8,6 +8,14 @@ export const CarContainer = props => {
 				<div className="Car-Image-Overlay">{props.car.manufacturerPrice}</div>
 			</div>
 			<CarToggles {...props} />
+			{props.car.locked && (
+				<div className="Car-Container-Overlay">
+					<span role="img" aria-label="locked">
+						&#128274;
+					</span>
+					<button onClick={() => props.unlockCar(props.car.id)}>Unlock: {props.car.unlockPrice}</button>
+				</div>
+			)}
 		</div>
 	);
 };
@@ -24,9 +32,9 @@ const PriceToggle = props => {
 		<div className="Car-Toggle Car-Price-Toggle">
 			<div className="Toggle-Title">Price</div>
 			<div className="Toggle-Controls">
-				<button onClick={() => props.changeSellingPrice(props.car.id, -5)}>-</button>
+				<button onClick={() => props.changeSellingPrice(props.car.id, -props.car.manufacturerPrice / 10)}>-</button>
 				<div>{props.car.sellingPrice}</div>
-				<button onClick={() => props.changeSellingPrice(props.car.id, 5)}>+</button>
+				<button onClick={() => props.changeSellingPrice(props.car.id, props.car.manufacturerPrice / 10)}>+</button>
 			</div>
 		</div>
 	);
