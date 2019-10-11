@@ -86,13 +86,17 @@ class App extends React.Component {
 			{ id: 0, amountSold: 5 },
 			{ id: 1, amountSold: 0 },
 			{ id: 2, amountSold: 0 },
-			{ id: 3, amountSold: 0 }
+			{ id: 3, amountSold: 0 },
+			{ id: 4, amountSold: 0 },
+			{ id: 5, amountSold: 0 }
 		],
 		allTimeCarsBought: [
 			{ id: 0, amountBought: 0 },
 			{ id: 1, amountBought: 0 },
 			{ id: 2, amountBought: 0 },
-			{ id: 3, amountBought: 0 }
+			{ id: 3, amountBought: 0 },
+			{ id: 4, amountBought: 0 },
+			{ id: 5, amountBought: 0 }
 		]
 	};
 
@@ -115,21 +119,47 @@ class App extends React.Component {
 				<div className="RightPanel">
 					<div className="Balance">Balance - £{this.state.balance.toFixed(2)}</div>
 					<hr />
-					<li>
-						Total Inventory:
-						{this.state.cars.reduce((total, car) => {
-							return total + car.quantity;
-						}, 0)}
-					</li>
+					<table>
+						<thead>
+							<tr>
+								<th>Stat</th>
+								<th>Value</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Total Inventory</td>
+								<td>
+									{this.state.cars.reduce((total, car) => {
+										return total + car.quantity;
+									}, 0)}
+								</td>
+							</tr>
+							<tr>
+								<td>Week No</td>
+								<td>{this.state.weekNo}</td>
+							</tr>
+						</tbody>
+					</table>
+					<b>Individual Car Stats</b>
+					<table>
+						<thead>
+							<th>Manufacturer</th>
+							<th>No of Cars Bought</th>
+						</thead>
+						<tbody>
+							{this.state.allTimeCarsBought.map(obj => (
+								<tr key={obj.id}>
+									<td>{this.state.cars.find(({ id }) => id === obj.id).manufacturer}</td>
+									<td>{obj.amountBought}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
 					<ul>
-						<li>Week Number: {this.state.weekNo}</li>
 						<li>Revenue</li>
 						<li>Customer Demand</li>
 						<li>Cost of Production / Min</li>
-
-						{this.state.allTimeCarsBought.map(obj => (
-							<p key={obj.id}>{obj.amountBought}</p>
-						))}
 					</ul>
 				</div>
 			</div>
@@ -151,7 +181,7 @@ class App extends React.Component {
 						if (car.quantity < 0) car.quantity = 0;
 						newBalance -= bill;
 
-						newAllTimeCarsBought.find(({ id: car }) => car === id).amountBought += value;
+						newAllTimeCarsBought.find(({ id: carID }) => carID === id).amountBought += value;
 					}
 				}
 				return car;

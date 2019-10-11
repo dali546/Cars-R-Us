@@ -2,7 +2,10 @@ import React from "react";
 export const CarContainer = props => {
 	return (
 		<div className="Car-Container">
-			<div className="Car-Title">{props.car.manufacturer}</div>
+			<div className="Car-Header">
+				<div className="Car-Title">{props.car.manufacturer}</div>
+				<div className="Car-Customer-Demand">Demand: {props.car.customerDemand}%</div>
+			</div>
 			<div className="Car-Image-Container">
 				<img src={props.car.url} alt={props.car.manufacturer} className="Car-Image" />
 				<div className="Car-Image-Overlay">{props.car.manufacturerPrice}</div>
